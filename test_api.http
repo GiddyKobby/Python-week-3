@@ -1,0 +1,40 @@
+# ### GET request to check server info
+# GET http://127.0.0.1:5000/api/info
+
+# ### POST request to send JSON data
+# POST http://127.0.0.1:5000/api/create
+# Content-Type: application/json
+
+# {
+#   "name": "Gideon",
+#   "age": 25
+# }
+
+
+### GET all tasks
+GET http://127.0.0.1:5000/tasks
+
+### POST (missing title to test error)
+POST http://127.0.0.1:5000/tasks
+Content-Type: application/json
+
+{}
+
+### PUT (invalid ID)
+PUT http://127.0.0.1:5000/tasks/invalidID
+Content-Type: application/json
+
+{
+  "title": "Fix bugs",
+  "done": true
+}
+
+### DELETE (invalid ID)
+DELETE http://127.0.0.1:5000/tasks/invalidID
+
+
+# ✅ See all 4 HTTP verbs: GET, POST, PUT, DELETE.
+
+# ✅ Practice in REST Client.
+
+# ✅ Understand the flow 

@@ -2,17 +2,13 @@ from flask import Flask, jsonify, request
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from bson.errors import InvalidId
-from dotenv import load_dotenv
-import os
-
-# Load .env
-load_dotenv()
 
 app = Flask(__name__)
 
-# MongoDB connection from .env
-MONGO_URI = os.getenv("MONGO_URI")
-client = MongoClient(MONGO_URI)
+# MongoDB connection
+client = MongoClient(
+    "mongodb+srv://gideonz823:Giddy.MongoDB10@cluster0.ry8nbp5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+)
 
 db = client["test_db"]
 collection = db["tasks"]
@@ -102,5 +98,4 @@ def delete_task(task_id):
 
 if __name__ == "__main__":
     print("Databases:", client.list_database_names())
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host="0.0.0.0", port=port)
+    app.run(debug=True)
